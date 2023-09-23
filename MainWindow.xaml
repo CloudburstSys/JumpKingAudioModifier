@@ -1,0 +1,126 @@
+﻿<Window x:Class="JumpKingAudioModifier.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JumpKingAudioModifier"
+        mc:Ignorable="d"
+        Title="Jump King Audio Modifier" Height="225" Width="300" ResizeMode="NoResize">
+    <Grid>
+    <DockPanel>
+        <!-- Top Menu Bar-->
+        <!--<Menu DockPanel.Dock="Top">
+            <MenuItem Header="Edit">
+                <MenuItem Header="Edit Settings" 
+                          Command="{Binding EditSettingsCommand}"/>
+            </MenuItem>
+        </Menu>-->
+        <!-- Window Content -->
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+            <!-- Start Button-->
+            <Button Grid.Row="6" 
+                    Grid.Column="2" 
+                    Margin="11,4,0,0"
+                    Width="100"
+                    Padding="4"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Content="Apply" 
+                    Command="{Binding InjectChanges}"/>
+            
+            <Button Grid.Row="1" 
+                    Grid.Column="2" 
+                    Margin="11,4,4,0"
+                    Padding="4"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Content="Random" 
+                    Command="{Binding RandomPreset}"/>
+
+            <!-- Voice Settings-->
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   Margin="11,4,0,0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Content="Preset:"/>
+            <ComboBox Grid.Row="1"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="2"
+                      Margin="11,4,11,0"
+                      Padding="4"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Left"
+                      ItemsSource="{Binding PresetNames}"
+                      SelectedItem="{Binding SelectedPresetName}"/>
+
+            <Label Grid.Row="2"
+                   Grid.Column="0"
+                   Margin="11,4,0,0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Content="Bump:"
+                   ToolTip="When selected, preset changes will affect the bump sound effect (when you hit a wall)"/>
+            <CheckBox Grid.Row="2"
+                      Grid.Column="1"
+                      Margin="11,6,11,4"
+                      VerticalAlignment="Center"
+                      IsChecked="{Binding IsAffectingBumpSFX}"/>
+            
+            <Label Grid.Row="3"
+                   Grid.Column="0"
+                   Margin="11,4,0,0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Content="Jump:"
+                   ToolTip="When selected, preset changes will affect the jump sound effect (when you... well... jump)"/>
+            <CheckBox Grid.Row="3"
+                      Grid.Column="1"
+                      Margin="11,6,11,4"
+                      VerticalAlignment="Center"
+                      IsChecked="{Binding IsAffectingJumpSFX}"/>
+            
+            <Label Grid.Row="4"
+                   Grid.Column="0"
+                   Margin="11,4,0,0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Content="Land:"
+                   ToolTip="When selected, preset changes will affect the land sound effect (when you land on a platform regardless of if you went up a platform or not, also plays on game start for some reason?)"/>
+            <CheckBox Grid.Row="4"
+                      Grid.Column="1"
+                      Margin="11,6,11,4"
+                      VerticalAlignment="Center"
+                      IsChecked="{Binding IsAffectingLandSFX}"/>
+            
+            <Label Grid.Row="5"
+                   Grid.Column="0"
+                   Margin="11,4,0,0"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Content="Splat:"
+                   ToolTip="When selected, preset changes will affect the splat sound effect (when you fall down far enough for you to crumple on the ground)"/>
+            <CheckBox Grid.Row="5"
+                      Grid.Column="1"
+                      Margin="11,6,11,4"
+                      VerticalAlignment="Center"
+                      IsChecked="{Binding IsAffectingSplatSFX}"/>
+        </Grid>
+    </DockPanel>
+    </Grid>
+</Window>
