@@ -49,7 +49,7 @@
                     Padding="4"
                     VerticalAlignment="Center"
                     HorizontalAlignment="Right"
-                    Content="Random" 
+                    Content="Random preset" 
                     Command="{Binding RandomPreset}"/>
 
             <!-- Voice Settings-->
